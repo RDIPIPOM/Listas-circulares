@@ -1,19 +1,16 @@
-import LinkedList from "./LinkedList.js";
-import Product from "./Product.js";
+import CircularLinkedList from "./CircularLinkedList.js";
+import BusStation from "./BusStation.js";
 
-var inventory = new LinkedList(new Array(20));
-var tagArticle = document.querySelector('#articleReport');
+var inventory = new CircularLinkedList(new Array(20));
+var tagArticle = document.querySelector('#Path');
 
 //Button Add
 document.querySelector('#btnAdd').addEventListener('click', () => {
-    let code = Number(document.querySelector('#code').value);
     let name = document.querySelector('#name').value;
-    let cost = Number(document.querySelector('#cost').value);
-    let stock = Number(document.querySelector('#stock').value);
-    let description = document.querySelector('#description').value;
+    let minutes = Number(document.querySelector('#minutes').value);
     let position = Number(document.querySelector('#position').value);
 
-    if (inventory.add(new Product(code, name, cost, stock, description)))
+    if (inventory.add(new BusStation(name, minutes), position))
         alert('Producto agregado correctamente');
     else
         alert('Código no válido, por favor intente de nuevo');

@@ -5,59 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Shop</title>
+    <title>Circular Linked List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <h1>Shop</h1>
+        <h1>Bus stations</h1>
     </header>
     <section>
         <h2>Opciones</h2>
-        <!--Add product-->
-        <h3>Agregar producto</h3>
+        <!--Add bus station-->
+        <h3>Add bus station</h3>
         <form>
-            <label for="code">Código: </label>
-            <input id="code" type="number">
-            <label for="name">Nombre: </label>
+            <label for="name">Name: </label>
             <input id="name" type="text">
-            <label for="cost">Precio: </label>
-            <input id="cost" type="number">
-            <label for="stock">Cantidad: </label>
-            <input id="stock" type="number">
-            <label for="description">Descripción: </label>
-            <input id="description" type="text">
-            <label for="position">Posición: </label>
+            <label for="minutes">Minutes: </label>
+            <input id="minutes" type="number">            
+            <label for="position">Position: </label>
             <input id="position" type="number">
-            <button id="btnAdd" type="button">Agregar</button>
+            <button id="btnAdd" type="button">Add</button>
         </form>
-        <!--Query product-->
-        <h3>Buscar producto</h3>
+        <!--Query bus station-->
+        <h3>Search bus sation</h3>
         <form>
-            <label for="queryByCode">Código: </label>
-            <input id="queryByCode" type="number">
-            <button id="btnQuery" type="button">Buscar</button>
-            <div id="productFound"></div>
+            <label for="queryByName">Name: </label>
+            <input id="queryByName" type="number">
+            <button id="btnQuery" type="button">Search</button>
+            <div id="BusStationFound"></div>
         </form>
-        <!--Delete product-->
-        <h3>Eliminar producto</h3>
+        <!--Delete bus sation-->
+        <h3>Delete bus sation</h3>
         <form>
-            <label for="deleteByCode">Código: </label>
-            <input id="deleteByCode" type="number">
-            <button id="btnDelete" type="button">Eliminar</button>
+            <label for="deleteByName">Name: </label>
+            <input id="deleteByName" type="number">
+            <button id="btnDelete" type="button">Delete</button>
         </form>
         <br>
-        <!--Create report-->
+        <!--Create Path-->
         <div id="separation">
-            <button id="btnCreateReport" class="btnReport">Generar reporte</button>
-            <button id="btnCreateReverseReport" class="btnReport">Generar reporte inverso</button>
+            <button id="btnCreatePath" class="btnReport">Look path</button>
         </div>
     </section>
     <!--Aside-->
     <aside>
-        <h2>Reporte</h2>
-        <article id="articleReport"></article>
+        <h2>Path</h2>
+        <article></article>
     </aside>
     <br>
 </body>

@@ -48,7 +48,7 @@ button:hover{
     width: 200px;
 }
 
-#code, #queryByCode, #deleteByCode, #position{
+#minutes, #position{
     width: 50px;
 }
 

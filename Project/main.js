@@ -2,7 +2,7 @@ import CircularLinkedList from "./CircularLinkedList.js";
 import BusStation from "./BusStation.js";
 
 var inventory = new CircularLinkedList(new Array(20));
-var tagArticle = document.querySelector('#Path');
+var tagArticle = document.querySelector('article');
 
 //Button Add
 document.querySelector('#btnAdd').addEventListener('click', () => {
@@ -13,7 +13,7 @@ document.querySelector('#btnAdd').addEventListener('click', () => {
     if (inventory.add(new BusStation(name, minutes), position))
         alert('Producto agregado correctamente');
     else
-        alert('Código no válido, por favor intente de nuevo');
+        alert('El nombre ya está inserto o la posición no es válida, por favor intente de nuevo');
 });
 //Button query
 document.querySelector('#btnQuery').addEventListener('click', () => {
@@ -36,10 +36,6 @@ document.querySelector('#btnDelete').addEventListener('click', () => {
         alert('Producto no encontrado');
 });
 //Button create report
-document.querySelector('#btnCreateReport').addEventListener('click', () => {
-    tagArticle.innerHTML = inventory.report();
-});
-//Button create reverse report
-document.querySelector('#btnCreateReverseReport').addEventListener('click', () => {
-    tagArticle.innerHTML = inventory.reverseReport();
+document.querySelector('#btnCreateRoute').addEventListener('click', () => {
+    tagArticle.innerHTML = inventory.createRoute();
 });

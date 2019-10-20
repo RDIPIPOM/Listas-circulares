@@ -31,6 +31,6 @@ export default class Product {
     }
 
     toString() {
-        return '////***Nombre: ' + this._name + '***Minutes: ' + this._minutes + '////';
+        return '////Estación: ' + this._name + '***Minutes: ' + this._minutes + '////';
     }
 }

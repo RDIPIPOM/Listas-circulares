@@ -19,9 +19,9 @@
         <h3>Add bus station</h3>
         <form>
             <label for="name">Name: </label>
-            <input id="name" type="text">
+            <input id="name" type="text" value="Station 1">
             <label for="minutes">Minutes: </label>
-            <input id="minutes" type="number">            
+            <input id="minutes" type="number" value="60">
             <label for="position">Position: </label>
             <input id="position" type="number">
             <button id="btnAdd" type="button">Add</button>
@@ -44,7 +44,17 @@
         <br>
         <!--Create Path-->
         <div id="separation">
-            <button id="btnCreateRoute" class="btnCreateRoute">Look route</button>
+            <form>
+                <label for="initialBusStation">Initial Bus Station:</label>
+                <input id="initialBusStation" type="text" value="Station 1">
+                <label for="startTime">Start hour:</label>
+                <input id="startTime" type="number">
+                <label for="endTime">End hour:</label>
+                <input id="endTime" type="number">
+                <br>
+                <br>
+                <button id="btnCreateRoute" class="btnCreateRoute" type="button">Look route</button>
+            </form>
         </div>
     </section>
     <!--Aside-->

@@ -37,5 +37,12 @@ document.querySelector('#btnDelete').addEventListener('click', () => {
 });
 //Button create report
 document.querySelector('#btnCreateRoute').addEventListener('click', () => {
-    tagArticle.innerHTML = inventory.createRoute();
+    let initialStation = document.querySelector('#initialBusStation').value;
+    let startHour = document.querySelector('#startTime').value;
+    let endHour = document.querySelector('#endTime').value;
+
+    if (initialStation != '' && startHour != 0 && endHour != 0) {
+        tagArticle.innerHTML = inventory.createRoute(initialStation, startHour, endHour);
+    } else
+        alert('Rellene los campos para continuar');
 });

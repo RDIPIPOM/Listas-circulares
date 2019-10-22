@@ -43,7 +43,7 @@ export default class CircularLinkedList {
         let aux = this._start;
         let objectFound = null;
         for (let i = 1; i <= this._totalElements && objectFound === null; i++) {
-            if(aux.name === name)
+            if (aux.name === name)
                 objectFound = aux;
         }
 
@@ -67,13 +67,19 @@ export default class CircularLinkedList {
             return false;
     }
 
-    createRoute() {
-        let aux = this._start;
+    createRoute(initialStation, startHour, endHour) {
+        let totalMinutes = (endHour - startHour) * 60;
+        let pastMinutes = 0;
+        let aux = this.query(initialStation);
         let string = '';
-        for (let i = 1; i <= this._totalElements; i++) {
-            string = string + '<br>' + aux.toString();
-            aux = aux.next;
+        if (aux != null) {
+            do {
+                string = string + 'Past Minutes: ' + pastMinutes + aux.toString() + '<br>';
+                aux = aux.next;
+                pastMinutes += aux.minutes;
+            } while (pastMinutes <= totalMinutes);
         }
+
         return string;
     }
 }

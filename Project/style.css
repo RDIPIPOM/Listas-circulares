@@ -48,7 +48,7 @@ button:hover{
     width: 200px;
 }
 
-#minutes, #position{
+#minutes, #position, #startTime, #endTime{
     width: 50px;
 }
 

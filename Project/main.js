@@ -11,29 +11,29 @@ document.querySelector('#btnAdd').addEventListener('click', () => {
     let position = Number(document.querySelector('#position').value);
 
     if (inventory.add(new BusStation(name, minutes), position))
-        alert('Producto agregado correctamente');
+        alert('Estación agregada correctamente');
     else
         alert('El nombre ya está inserto o la posición no es válida, por favor intente de nuevo');
 });
 //Button query
 document.querySelector('#btnQuery').addEventListener('click', () => {
-    let tagDiv = document.querySelector('#productFound');
+    let tagDiv = document.querySelector('#BusStationFound');
     tagDiv.innerHTML = "";
-    let code = Number(document.querySelector('#queryByCode').value);
-    let objReturned = inventory.query(code);
+    let name = document.querySelector('#queryByName').value;
+    let objReturned = inventory.query(name);
 
-    if (objReturned != -1)
+    if (objReturned != null)
         tagDiv.innerHTML = objReturned.toString();
     else
-        alert('No se ha podido encontrar el producto, por favor pruebe con otro código');
+        alert('No se ha podido encontrar la estación, por favor pruebe con otro nombre');
 });
 //Button delete
 document.querySelector('#btnDelete').addEventListener('click', () => {
-    let code = Number(document.querySelector('#deleteByCode').value);
-    if (inventory.delete(code))
-        alert('Producto eliminado correctamente');
+    let name = document.querySelector('#deleteByName').value;
+    if (inventory.delete(name))
+        alert('Estación eliminada correctamente');
     else
-        alert('Producto no encontrado');
+        alert('Estación no encontrado');
 });
 //Button create report
 document.querySelector('#btnCreateRoute').addEventListener('click', () => {

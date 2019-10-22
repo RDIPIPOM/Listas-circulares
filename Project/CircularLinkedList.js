@@ -42,7 +42,7 @@ export default class CircularLinkedList {
     query(name) {
         let aux = this._start;
         let objectFound = null;
-        for (let i = 1; i <= this._totalElements && objectFound === null; i++) {
+        for (let i = 1; i <= this._totalElements && objectFound === null && this._start != null; i++) {
             if (aux.name === name)
                 objectFound = aux;
         }
@@ -50,17 +50,24 @@ export default class CircularLinkedList {
         return objectFound;
     }
 
-    delete(code) {
-        let objectFound = this.query(code);
+    delete(name) {
+        let objectFound = this.query(name);
         if (objectFound != null) {
-            if (objectFound.next != null && objectFound.previous != null) { //Middle
+            if (objectFound != this._start && objectFound != this._end) { //Middle
                 objectFound.previous.next = objectFound.next;
                 objectFound.next.previous = objectFound.previous;
-            } else if (objectFound.previous === null) { //Botton
-                this._start = objectFound.next;
-                objectFound.next.previous = null;
+            } else if (objectFound === this._start) { //Botton
+                if (this._totalElements != 1) {
+                    this._start.previous.next = this._start.next;
+                    this._start.next.previous = this._start.previous;
+                    this._start = this._start.next;
+                } else {
+                    this._start = null;
+                }
             } else { //top                    
-                objectFound.previous.next = null;
+                this._start.previous = this._end.previous;
+                this._end.previous.next = this._start;
+                this._end = this._end.previous;
             }
             return true;
         } else

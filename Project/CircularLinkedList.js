@@ -45,6 +45,7 @@ export default class CircularLinkedList {
         for (let i = 1; i <= this._totalElements && objectFound === null && this._start != null; i++) {
             if (aux.name === name)
                 objectFound = aux;
+            aux = aux.next;
         }
 
         return objectFound;
@@ -56,19 +57,21 @@ export default class CircularLinkedList {
             if (objectFound != this._start && objectFound != this._end) { //Middle
                 objectFound.previous.next = objectFound.next;
                 objectFound.next.previous = objectFound.previous;
-            } else if (objectFound === this._start) { //Botton
+            } else if (objectFound === this._start) { //Bottom
                 if (this._totalElements != 1) {
-                    this._start.previous.next = this._start.next;
-                    this._start.next.previous = this._start.previous;
+                    this._end.next = this._start.next;
+                    this._start.next.previous = this._end;
                     this._start = this._start.next;
                 } else {
                     this._start = null;
                 }
-            } else { //top                    
+            } else { //top
                 this._start.previous = this._end.previous;
                 this._end.previous.next = this._start;
                 this._end = this._end.previous;
             }
+
+            this._totalElements--;
             return true;
         } else
             return false;
